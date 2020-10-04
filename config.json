@@ -1,0 +1,37 @@
+{
+    "start": {
+        "buttons": [
+            {"text": "Зелёный квадрат", "state": "square"},
+            {"text": "Круг", "state": "circle"},
+            {"text": "Совет", "state": "advice"}
+        ]
+    },
+    "square": {
+        "image": "square.png",
+        "state": "start"
+    },
+    "circle": {
+        "buttons": [
+            {"text": "Красный", "state": "red_circle"},
+            {"text": "Синий", "state": "blue_circle"},
+            {"text": "Назад", "state": "start"},
+            {"text": "Определение", "state": "circle_definition"}
+        ]
+    },
+    "red_circle": {
+        "image": "red_circle.png",
+        "state": "start"
+    },
+    "blue_circle": {
+        "image": "blue_circle.png",
+        "state": "start"
+    },
+    "circle_definition": {
+        "text": "Круг - множество точек плоскости, удалённых от заданной точки этой плоскости на расстояние, не превыющее данное",
+        "state": "start"
+    },
+    "advice": {
+        "text": "Кушай вкусно, спи достаточно",
+        "state": "start"
+    }
+}

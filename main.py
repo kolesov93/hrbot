@@ -5,10 +5,9 @@ import json
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Updater, CommandHandler, CallbackQueryHandler
 
-TOKEN = '1342187796:AAFO1zsRT1hl9Bh1-L6pQKZFVCd97BhteSg'
-
 def _parse_args():
     parser = argparse.ArgumentParser()
+    parser.add_argument('--token')
     parser.add_argument('config')
     return parser.parse_args()
 
@@ -31,7 +30,8 @@ def button(update, context):
     # Some clients may have trouble otherwise. See https://core.telegram.org/bots/api#callbackquery
     query.answer()
 
-    query.edit_message_text(text="Selected option: {}".format(query.data))
+    # query.edit_message_text(text="Selected option: {}".format(query.data))
+    context.bot.send_message(chat_id=update.effective_chat.id, text="Selected option: {}".format(query.data))
 
 
 def help_command(update, context):
@@ -41,7 +41,7 @@ def help_command(update, context):
 def main():
     args = _parse_args()
 
-    updater = Updater(TOKEN, use_context=True)
+    updater = Updater(args.token, use_context=True)
 
     updater.dispatcher.add_handler(CommandHandler('start', start))
     updater.dispatcher.add_handler(CallbackQueryHandler(button))
