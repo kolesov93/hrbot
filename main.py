@@ -66,33 +66,10 @@ class Handler:
         self._do_process_state('start', update, context)
 
 
-
-def start(update, context):
-    keyboard = [[InlineKeyboardButton("Option 1", callback_data='1'),
-                 InlineKeyboardButton("Option 2", callback_data='2')],
-
-                [InlineKeyboardButton("Option 3", callback_data='3')]]
-
-    reply_markup = InlineKeyboardMarkup(keyboard)
-
-    update.message.reply_text('Please choose:', reply_markup=reply_markup)
-
-
-def button(update, context):
-    query = update.callback_query
-
-    # CallbackQueries need to be answered, even if no notification to the user is needed
-    # Some clients may have trouble otherwise. See https://core.telegram.org/bots/api#callbackquery
-    query.answer()
-
-    # query.edit_message_text(text="Selected option: {}".format(query.data))
-    context.bot.send_message(chat_id=update.effective_chat.id, text="Selected option: {}".format(query.data))
-
-
 def main():
     args = _parse_args()
 
-    with open(args.config) as fin:
+    with open(args.config, 'r', encoding='utf-8') as fin:
         config = json.load(fin)
 
     handler = Handler(config)
@@ -101,11 +78,9 @@ def main():
     updater.dispatcher.add_handler(CommandHandler('start', handler._start_handler))
     updater.dispatcher.add_handler(CallbackQueryHandler(handler._button_handler))
 
-    # Start the Bot
-    updater.start_polling()
+    logger.info('Loaded config. Starting to work')
 
-    # Run the bot until the user presses Ctrl-C or the process receives SIGINT,
-    # SIGTERM or SIGABRT
+    updater.start_polling()
     updater.idle()
 
 
