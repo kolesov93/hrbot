@@ -1,5 +1,6 @@
 {
     "start": {
+        "text": "Что надо?",
         "buttons": [
             {"text": "Зелёный квадрат", "state": "square"},
             {"text": "Круг", "state": "circle"},
@@ -11,6 +12,7 @@
         "state": "start"
     },
     "circle": {
+        "text": "Что круг?",
         "buttons": [
             {"text": "Красный", "state": "red_circle"},
             {"text": "Синий", "state": "blue_circle"},
