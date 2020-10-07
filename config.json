@@ -1,39 +1,141 @@
 {
     "start": {
-        "text": "Что надо?",
+        "text": "Добро пожаловать в IBA Group!\nМы очень рады, что вы теперь часть нашей дружной команды.\nГотовы начать знакомство с компанией?",
         "buttons": [
-            {"text": "Зелёный квадрат", "state": "square"},
-            {"text": "Круг", "state": "circle"},
-            {"text": "Совет", "state": "advice"}
+            {"text": "Позже", "state": "stop"},
+            {"text": "Да", "state": "start_yes"}
+            
         ]
     },
-    "square": {
-        "image": "square.png",
-        "state": "start"
-    },
-    "circle": {
-        "text": "Что круг?",
+    "start_yes": {
+        "text": "Как вы думаете, сколько человек работает в IBA Group?",
         "buttons": [
-            {"text": "Красный", "state": "red_circle"},
-            {"text": "Синий", "state": "blue_circle"},
-            {"text": "Назад", "state": "start"},
-            {"text": "Определение", "state": "circle_definition"}
+            {"text": "до 1000", "state": "employees_number_0"},
+            {"text": "1000-2000", "state": "employees_number_1"},
+            {"text": "2500+", "state": "employees_number_2"}
         ]
     },
-    "red_circle": {
-        "image": "red_circle.png",
-        "state": "start"
+    "employees_number_1": {
+        "text": "*Почти!*\nВ IBA Group работают 2500+ специалистов над проектами в 40+ странах мира. Мы уверены, что в нашей компании вы сможете открыто использовать новые подходы, делиться своими мыслями и помогать своей команде реализовывать инновационные идеи.",
+        "state": "org_structure_0"
     },
-    "blue_circle": {
-        "image": "blue_circle.png",
-        "state": "start"
+    "employees_number_0": {
+        "text": "*Не совсем!*\nВ IBA Group работают 2500+ специалистов над проектами в 40+ странах мира. Мы уверены, что в нашей компании вы сможете открыто использовать новые подходы, делиться своими мыслями и помогать своей команде реализовывать инновационные идеи.",
+        "state": "org_structure_0"
     },
-    "circle_definition": {
-        "text": "Круг - множество точек плоскости, удалённых от заданной точки этой плоскости на расстояние, не превыющее данное",
-        "state": "start"
+    "employees_number_2": {
+        "text": "*Правильно!*\nВ IBA Group работают 2500+ специалистов над проектами в 40+ странах мира. Мы уверены, что вы поможете своей команде реализовывать инновационные идеи.",
+        "state": "employees_number_3"
     },
-    "advice": {
-        "text": "Кушай вкусно, спи достаточно",
-        "state": "start"
-    }
+    "employees_number_3": {
+        "text": "Узнать о миссии компании, офисах и важных проектах компании можно на официальном [сайте](https://iba.by/about-iba-group/executive-summary/) компании\n",
+    "state": "employees_number_4"
+    },
+    "employees_number_4": {
+        "text": "Теперь проверим, внимательно ли вы прочитали информацию.Сколько центров разработок есть у IBA Group?",
+        "buttons": [
+            {"text": "3", "state": "answer_3"},  
+            {"text": "5", "state": "answer_5"},
+            {"text": "8", "state": "answer_8"}
+        ]
+    },
+    "answer_3": {
+        "text": "Не совсем так, на самом деле у IBA Group 10 центров разработок в Беларуси, Чехии, Казахстане и Словакии",
+        "state": "org_structure_0"
+    },
+    "answer_5": {
+        "text": "Ну почти, на самом деле у IBA Group 10 центров разработок в Беларуси, Чехии, Казахстане и Словакии",
+        "state": "org_structure_0"
+    },
+    "answer_8": {
+        "text": "Все правильно!",
+        "state": "org_structure_0"
+    },
+    "org_structure_0": {
+        "text": "А теперь давайте познакомимся с некоторыми из коллег. Готовы познакомиться с топами IBA Group?",
+        "buttons": [
+            {"text": "Позже", "state": "stop"},  
+            {"text": "Да", "state": "org_structure_1"}
+        ]
+    },
+    "org_structure_1": {
+        "text": "*3 главные персоны, которые можно встретить в офисе IBA Group*\n*Сергей Левтеев*.\nПредседатель правления IBA Group",
+        "state": "org_structure_2"
+    },
+    "org_structure_2": {
+        "image": "levteev.jpg",
+         "buttons": [
+            {"text": "Приятно познакомиться", "state": "org_structure_3"}
+        ]
+    },
+    "org_structure_3": {
+        "text": "*Сергей Акулич*.\nГенеральный директор IBA IT Park",
+        "state": "org_structure_4"
+    },
+    "org_structure_4": {
+        "image": "akoulich.jpg",
+         "buttons": [
+            {"text": "Приятно познакомиться", "state": "org_structure_6"}
+        ]
+    },
+    "org_structure_6": {
+        "text": "*Владимир Рыжих*.\nДиректор по разработке ПО",
+        "state": "org_structure_7"
+    },
+    "org_structure_7": {
+        "image": "ryzhyh.jpg",
+         "buttons": [
+            {"text": "Приятно познакомиться", "state": "org_structure_8"}
+        ]
+    },
+    "org_structure_8": {
+        "text": "Взаимно!\nМы завершили блок \"Знакомство с компанией\", теперь познакомимся с офисом.\nГотовы продолжать?",
+        "buttons": [
+            {"text": "Позже", "state": "stop"},
+            {"text": "Да", "state": "office_0"}
+            
+        ]
+    },
+    "office_0": {
+        "text": "Во-первых, вот карта офиса на Программистов,3, чтобы вы не потерялись.",
+        "state": "workplace_1"
+    },
+    "office_1": {
+        "text": "А во-вторых, получили ли вы уже постоянный пропуск в офис?",
+        "state": "workplace_1"
+    },
+    "office_2": {
+        "text": "Во-вторых, ",
+        "state": "workplace_1"
+    },
+    "workplace_0": {
+        "text": "Давайте зарегистрируемся на *Workplace*, чтобы вы были в курсе новостей в компании",
+        "state": "workplace_1"
+    },
+    "workplace_1": {
+        "text": "Workplace - корпоративная социальная сеть. Здесь можно найти новости компании, объявления для сотрудников, группы и др.\n\n*Как зарегистрироваться?* \n1. [Пройди по ссылке](https://ibagroup.workplace.com/)\n2. Введите свою рабочую почту\n\n!Внимание, если почта выглядит так: ххх@ibagroup.eu, то необходимо при регистрации использовать xxx@iba.by.",
+        "state": "workplace_2"
+    },
+    "workplace_2": {
+        "text": "Получилось зарегистрироваться?",
+        "buttons": [
+            {"text": "Нет", "state": "workplace_no"},
+            {"text": "Да", "state": "security_1"}
+        ]
+    },
+    "workplace_no": {
+        "text": "Если что-то не получается, напишите Евгении Колесовой: +375293711529",
+        "state": "security_1"
+    },
+    "security_1": {
+        "text": "ВАША БЕЗОПАСНОСТЬ\nПриступайте к работе, когда пройдете вводный инструктаж. Это must have и залог счастливого будущего. Найдите в почте письмо с темой \"Необходимо пройти инструктаж по ТБ и ИБ. Срочно!\" и следуйте инструкциям.",
+        "state": "stop"
+    },
+   
+   "stop": {
+      "text": "Нажмите /start, если захотите пройти заново.",
+      "state": "end"
+   },
+   "end": {
+   }
 }
