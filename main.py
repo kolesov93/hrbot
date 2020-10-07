@@ -41,14 +41,14 @@ class Handler:
             reply_markup = InlineKeyboardMarkup([keyboard])
             if 'image' in state:
                 with open(state['image'], 'rb') as fin:
-                    context.bot.send_photo(chat_id=update.effective_chat.id, photo=fin, reply_markup=reply_markup)
+                    context.bot.send_photo(chat_id=update.effective_chat.id, photo=fin, reply_markup=reply_markup, caption=state.get('caption'))
             else:
                 context.bot.send_message(chat_id=update.effective_chat.id, text=state['text'], parse_mode='Markdown', reply_markup=reply_markup)
             return None
         elif 'image' in state:
             logger.info('Found image state')
             with open(state['image'], 'rb') as fin:
-                context.bot.send_photo(chat_id=update.effective_chat.id, photo=fin)
+                context.bot.send_photo(chat_id=update.effective_chat.id, photo=fin, caption=state.get('caption'))
             return state['state']
         elif 'text' in state:
             logger.info('Found text state')
