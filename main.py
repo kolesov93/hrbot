@@ -39,7 +39,11 @@ class Handler:
                     InlineKeyboardButton(info['text'], callback_data=info['state'])
                 )
             reply_markup = InlineKeyboardMarkup([keyboard])
-            context.bot.send_message(chat_id=update.effective_chat.id, text=state['text'], reply_markup=reply_markup)
+            if 'image' in state:
+                with open(state['image'], 'rb') as fin:
+                    context.bot.send_photo(chat_id=update.effective_chat.id, photo=fin, reply_markup=reply_markup)
+            else:
+                context.bot.send_message(chat_id=update.effective_chat.id, text=state['text'], parse_mode='Markdown', reply_markup=reply_markup)
             return None
         elif 'image' in state:
             logger.info('Found image state')
@@ -48,7 +52,7 @@ class Handler:
             return state['state']
         elif 'text' in state:
             logger.info('Found text state')
-            context.bot.send_message(chat_id=update.effective_chat.id, text=state['text'])
+            context.bot.send_message(chat_id=update.effective_chat.id, text=state['text'], parse_mode='Markdown')
             return state['state']
         else:
             logger.error('Unknown state "%s"', state_name)
